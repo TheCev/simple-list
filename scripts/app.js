@@ -4,7 +4,7 @@
 //let localesTasks = JSON.parse(localStorage.getItem("Tasks"))
 //let list = document.getElementById("list");
 
-
+// esto arreglo el problema el primer inicio
 	
 	if (!JSON.parse(localStorage.getItem("Tasks"))){
 		var localesTasks = ["HOLA, elimina esta tarea y agrega otras"]
