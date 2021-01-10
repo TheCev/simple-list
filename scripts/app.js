@@ -1,6 +1,28 @@
-let titles =[];
-let localesTasks = JSON.parse(localStorage.getItem("Tasks"))
-let list = document.getElementById("list");
+//let titles =[];
+//let localesTasks = ["hola"]
+//localStorage.setItem("Tasks",JSON.stringify(localesTasks))
+//let localesTasks = JSON.parse(localStorage.getItem("Tasks"))
+//let list = document.getElementById("list");
+
+
+	
+	if (!JSON.parse(localStorage.getItem("Tasks"))){
+		var localesTasks = ["HOLA, elimina esta tarea y agrega otras"]
+		localStorage.setItem("Tasks",JSON.stringify(localesTasks))
+		 var list = document.getElementById("list");
+		 localesTasks = JSON.parse(localStorage.getItem("Tasks"))
+
+
+	}else{
+		var localesTasks = JSON.parse(localStorage.getItem("Tasks"))
+		if (localesTasks.length == 0) {
+			localesTasks = ["Hola :), elimina esta tarea y agrega otras"]
+		}
+		var list = document.getElementById("list");
+
+	}
+	getTasks()
+
 
 
 function addTask(){
@@ -43,6 +65,7 @@ function deleteTask(){
 	saveTask()
 
 }
-getTasks()
+
+
 
 
