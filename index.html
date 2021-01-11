@@ -3,15 +3,39 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>SimpleList</title>
+	<!--para el titulo-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito&family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
 	
 </head>
 <body>
+	
+	<div id="title-wrapper">
+		<h1 id="title">SimpleList</h1>
+
+	</div>
+	<div id="main-wrapper">
 	<ol id="list">
 		
 	</ol>
-	<button onclick="addTask()">Agregar</button>
-	<button onclick="deleteTask()" >Eliminar</button>
+	<div id="button-wrapper">
+	<button id="add" onclick="addTask()">Agregar</button>
+	<button id="delete" onclick="deleteTask()" >Eliminar</button>
+	</div>
+		
+	</div>
+	<footer>
+	<p id="author">Enrique Rodriguez</p>
+	<p id="version">version 1.1.0 </p>
+	<footer></footer>
+
+	
+
 	<script src="scripts/app.js"></script>
 </body>
 </html>

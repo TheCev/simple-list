@@ -49,6 +49,7 @@ function getTasks(){
 		let element =[];
 		let content = [];
 		let check = document.createElement("input");
+		check.setAttribute("class","check")
 		check.setAttribute("type","checkbox")
 		element[i] = document.createElement("li")
 		content[i] = document.createTextNode(localesTasks[i]);
