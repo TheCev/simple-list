@@ -21,6 +21,7 @@ li{
 	min-width: 210px;
 	width: 35%;
 	border-radius:5px;
+	border: 2px solid #6CB5FF; 
 	/*background-color: #FBFDFF;*/
 }
 #title{
@@ -166,6 +167,7 @@ footer{
 	min-width:200px
 	margin: 20px 20px;
 	background: #FBFDFF;
+	border: 2px solid #6CB5FF; 
 }
 .check{
 	margin: 0 7px;

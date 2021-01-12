@@ -28,10 +28,12 @@
 function addTask(){
 	
 	let title = prompt("titulo");
-	localesTasks.push(title)
 	
-
+	
+	if (title) {
+	localesTasks.push(title)
 	saveTask()
+}
 
 }
 
