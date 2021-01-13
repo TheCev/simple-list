@@ -7,7 +7,7 @@
 // esto arreglo el problema el primer inicio
 	
 	if (!JSON.parse(localStorage.getItem("Tasks"))){
-		var localesTasks = ["HOLA, elimina esta tarea y agrega otras"]
+		var localesTasks = [{title:"Hola :), elimina esta tarea y agrega otras",state:"check",}]
 		localStorage.setItem("Tasks",JSON.stringify(localesTasks))
 		 var list = document.getElementById("list");
 		 localesTasks = JSON.parse(localStorage.getItem("Tasks"))
@@ -16,22 +16,30 @@
 	}else{
 		var localesTasks = JSON.parse(localStorage.getItem("Tasks"))
 		if (localesTasks.length == 0) {
-			localesTasks = ["Hola :), elimina esta tarea y agrega otras"]
+			localesTasks = [{title:"Hola :), elimina esta tarea y agrega otras",state:"check"}]
 		}
 		var list = document.getElementById("list");
 
 	}
 	getTasks()
 
+	function tarea (title,state = "check",index){
+		this.title = title;
+		this.state = state;
+
+
+	}
+
 
 
 function addTask(){
+	let titulo = prompt("titulo");
 	
-	let title = prompt("titulo");
 	
-	
-	if (title) {
-	localesTasks.push(title)
+	if (titulo) {
+		let indice = localesTasks.length
+		let task = new tarea(titulo,"check",indice);
+	localesTasks.push(task)
 	saveTask()
 }
 
@@ -45,28 +53,45 @@ function saveTask(){
 }
 
 function getTasks(){
-	
 	list.innerHTML = "";
 	for (let i = 0; i < localesTasks.length; i++) {
 		let element =[];
 		let content = [];
-		let check = document.createElement("input");
-		check.setAttribute("class","check")
-		check.setAttribute("type","checkbox")
-		element[i] = document.createElement("li")
-		content[i] = document.createTextNode(localesTasks[i]);
+		//let buttonDelete = localesTasks[i].buttonDelete;
+		//buttonDelete.setAttribute("type","button");
 
-		element[i].appendChild(check)
-		element[i].appendChild(content[i]);
-		list.appendChild(element[i]);
+		//buttonDelete.setAttribute("value","X")
+		//let check = document.createElement("input");
+		//check.setAttribute("class","check")
+		//check.setAttribute("id",localesTasks[i].title)
+		//check.setAttribute("type","checkbox")
+		//element[i] = document.createElement("li")
+		//element[i].innerHTML = localesTasks[i].title		//element[i].appendChild(check)
+		//element[i].appendChild(buttonDelete)
+		//element[i].appendChild(content[i]);
+		list.innerHTML += `<li > <button onclick="check(${i})" class="${localesTasks[i].state}"></button>${localesTasks[i].title} <button onclick="deleteTask(${i})" class="delete">x</button>
+		</li>`;
+
+		//list.appendChild(element[i]);
 	}
 }
 
-function deleteTask(){
+function deleteTask(a){
 	
-	localesTasks.pop()
+	localesTasks.splice(a,1);
 	saveTask()
 
+}
+
+function check(a){
+	if (localesTasks[a].state === "check") {
+		localesTasks[a].state = "checked";
+
+	}
+	else{
+		localesTasks[a].state = "check"
+	}
+	saveTask()
 }
 
 

@@ -10,6 +10,7 @@ li{
 	font-size:18px;
 	color:#4D93DB;
 	margin: 10px auto;
+	list-style: none;
 
 
 
@@ -22,6 +23,7 @@ li{
 	width: 35%;
 	border-radius:5px;
 	border: 2px solid #6CB5FF; 
+	height: 80%;
 	/*background-color: #FBFDFF;*/
 }
 #title{
@@ -45,18 +47,20 @@ li{
 #add{
 	font-family: "Roboto";
 	font-weight: 400;
-	margin:10px;
+	margin: 0px auto;
+	width: auto;
 	border: none;
 	color: #fff;
 	background: #6CB5FF;
 	padding: 7px;
 	font-size: 16px;
+	align-self: center;
 	border-radius: 4px;
 }
 #add:hover {
 	font-family: "Roboto";
 	font-weight: 400;
-	margin:10px;
+	
 	border: 2px ;
 	color: #F5F5F5;
 	background: #489FF6;
@@ -68,7 +72,7 @@ li{
 #add:active {
 	font-family: "Roboto";
 	font-weight: 400;
-	margin:10px;
+	
 	border: none;
 	color: #fff;
 	background: #6CB5FF;
@@ -79,7 +83,7 @@ li{
 #add:visited  {
 	font-family: "Roboto";
 	font-weight: 400;
-	margin:10px;
+	
 	border: none;
 	color: #fff;
 	background: #6CB5FF;
@@ -87,64 +91,60 @@ li{
 	font-size: 16px;
 	border-radius: 4px;
 }
-#delete{
+.delete{
 
 	font-family: "Roboto";
 	font-weight: 400;
-	margin:10px;
 	border: none;
 	color: #fff;
+	padding: 2px 7px;
+	margin-left: 10px;
+
 	background: #6CB5FF;
-	padding: 7px;
 	font-size: 16px;
-	border-radius: 4px;
+	border-radius: 100%;
 
 
 }
-#delete:hover {
-	font-family: "Roboto";
+.delete:hover {
+	font-family:"Roboto";
 	font-weight: 400;
-	margin:10px;
 	border: 2px ;
 	color: #F5F5F5;
 	background: #489FF6;
-	padding: 7px;
+
 	font-size: 16px;
-	border-radius: 4px;
+	border-radius: 100%;
 	box-shadow: 0px 2px 3px black;
 }
-#delete:active {
+.delete:active {
 	font-family: "Roboto";
 	font-weight: 400;
-	margin:10px;
 	border: none;
 	color: #fff;
 	background: #6CB5FF;
-	padding: 7px;
+
 	font-size: 16px;
-	border-radius: 4px;
 }
-#delete:visited  {
+.delete:visited  {
 	font-family: "Roboto";
 	font-weight: 400;
-	margin:10px;
 	border: none;
 	color: #fff;
 	background: #6CB5FF;
-	padding: 7px;
+
 	font-size: 16px;
-	border-radius: 4px;
 }
 #list{
 	margin: auto;
+	min-height: 180px;
 	padding: 20px;
-	width: 80%;
-	min-width: 200px;
-	min-height: 250px;
+	max-width: 80%;
 }
 #button-wrapper{
-	width: 200px;
-	margin: auto;
+	padding: 10px 0px;
+	display: flex;
+	justify-content: center;
 	
 }
 #author{
@@ -157,7 +157,7 @@ li{
 	
 }
 footer{
-	margin-top: 25px;
+	padding: 10px;
 
 }
 #title-wrapper{
@@ -167,10 +167,23 @@ footer{
 	min-width:200px
 	margin: 20px 20px;
 	background: #FBFDFF;
-	border: 2px solid #6CB5FF; 
+	border: 2px solid #6CB5FF;
+	height: 80%; 
 }
 .check{
-	margin: 0 7px;
-	size: b4;
-
+	width: 16px;
+	height:16px;
+	background: #fff;
+	border: 1px solid #6CB5FF;
+	border-radius:3px;
+	margin-right: 10px;
+}
+.checked{
+	width:16px;
+	height: 16px;
+	background: #6CB5FF;
+	color: #fff;
+	border: 1px solid #4D93DB;
+	border-radius: 3px;
+	margin-right:10px;
 }
