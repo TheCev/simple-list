@@ -1,0 +1,33 @@
+<div class="container">
+	<h2 class="title">
+		 Join
+	</h2>
+</div>
+
+
+	<form action="" [formGroup]="join">
+		<div class="container">
+		<mat-form-field appearance="fill" color="primary">
+
+		<mat-label>Username*</mat-label>
+
+		<input type="text" matInput placeholder="Username" formControlName="username">
+		<mat-icon matPrefix>person</mat-icon>
+	</mat-form-field>
+	
+		<mat-form-field appearance="fill">
+		<mat-label>Email*</mat-label>
+		<input type="text" matInput placeholder="Email" formControlName="email">
+		<mat-icon matPrefix>mail</mat-icon>
+	</mat-form-field>
+	
+	
+		<mat-form-field appearance="fill">
+		<mat-label>Password*</mat-label>
+		<input type="password" matInput placeholder="Password" formControlName="password">
+		<mat-icon matPrefix>lock</mat-icon>
+	</mat-form-field>
+	<button mat-flat-button color="primary">Join</button>
+	</div>
+
+</form>

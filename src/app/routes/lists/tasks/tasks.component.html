@@ -1,0 +1,32 @@
+<div class="container">
+	<h1>{{list['list_title']}}</h1>
+</div>
+
+<div class="container" *ngIf="tasks">
+
+	<p>{{tasksDone.length +"/"+ tasks.length || 0}}</p>
+	<app-progress-bar [length]="percentage"></app-progress-bar>
+	
+</div>
+
+<div class="container">
+	 
+	<mat-selection-list #listTasks>
+		<ng-container *ngFor="let task of tasks">
+
+			<div class="flexbox">
+				<mat-list-option (click)="changeState(task)" selected="{{task['task_state'] == 'N'? false : true }}">
+					{{task['task_title']}}
+				</mat-list-option>
+				<app-delete-button (click)="deleteTask(task['task_id'])"></app-delete-button>
+			</div>
+
+		</ng-container>
+	</mat-selection-list>
+
+</div>
+
+<div class="container">
+	<app-add-tasks-button [listId]="listId" (newTask)="addNewTask($event)"></app-add-tasks-button>
+</div>
+

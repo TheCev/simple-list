@@ -1,0 +1,7 @@
+{
+	"/users/1/*":{
+		"target":"https://simple-list-api-rest.herokuapp.com",
+		"secure":false,
+		"logLevel":"debug"
+	}
+}

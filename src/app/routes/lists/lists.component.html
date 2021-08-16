@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 class="subtitle">To Do Lists</h2>
+</div>
+
+<mat-action-list class="container">
+  <ng-container *ngFor="let list of lists">
+	<div class="flexbox">
+
+    		<button mat-list-item routerLink="tasks/{{list['list_id']}}">
+    			<div mat-list-item-text >{{list['list_title']}}</div>
+    	 	</button>
+    
+    		<app-delete-button (click)="openDialog(list['list_id'])"></app-delete-button>
+
+    	</div>
+	</ng-container>
+</mat-action-list>
+
+<div class="container">
+	<app-add-button (newList)="addNewList($event)"></app-add-button>
+</div>
+
+
