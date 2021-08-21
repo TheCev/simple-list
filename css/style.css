@@ -1,3 +1,6 @@
+
+@import "../node_modules/bootstrap/dist/css/bootstrap";
+
 *{
 	padding: 0;
 	margin:0;
@@ -44,7 +47,7 @@ li{
 
 }
 
-#add{
+/*#add{
 	font-family: "Roboto";
 	font-weight: 400;
 	margin: 0px auto;
@@ -106,6 +109,7 @@ li{
 
 
 }
+*/
 .delete:hover {
 	font-family:"Roboto";
 	font-weight: 400;

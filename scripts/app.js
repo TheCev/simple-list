@@ -5,7 +5,7 @@
 //let list = document.getElementById("list");
 
 // esto arreglo el problema el primer inicio
-	
+
 	if (!JSON.parse(localStorage.getItem("Tasks"))){
 		var localesTasks = [{title:"Hola :), elimina esta tarea y agrega otras",state:"check",}]
 		localStorage.setItem("Tasks",JSON.stringify(localesTasks))
@@ -69,7 +69,18 @@ function getTasks(){
 		//element[i].innerHTML = localesTasks[i].title		//element[i].appendChild(check)
 		//element[i].appendChild(buttonDelete)
 		//element[i].appendChild(content[i]);
-		list.innerHTML += `<li > <button onclick="check(${i})" class="${localesTasks[i].state}"></button>${localesTasks[i].title} <button onclick="deleteTask(${i})" class="delete">x</button>
+		list.innerHTML += `<li  class="list-group-item">
+								<div class="row">
+									<div class="col-2">
+									<input type="checkbox" onclick="check(${i})" ${localesTasks[i].state} class="form-check-input me-1">
+									</div>
+									<div class="col-8">
+									${localesTasks[i].title} 
+									</div>
+									<div class="col-2">
+									<button onclick="deleteTask(${i})" class="btn btn-danger btn-sm" style="border-radius:50%">x</button>
+									</div>
+								</div>
 		</li>`;
 
 		//list.appendChild(element[i]);
