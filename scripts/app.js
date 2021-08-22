@@ -1,110 +1,99 @@
-//let titles =[];
-//let localesTasks = ["hola"]
-//localStorage.setItem("Tasks",JSON.stringify(localesTasks))
-//let localesTasks = JSON.parse(localStorage.getItem("Tasks"))
-//let list = document.getElementById("list");
 
-// esto arreglo el problema el primer inicio
+let localesTasks = [];
+let list = document.getElementById("list");
 
-	if (!JSON.parse(localStorage.getItem("Tasks"))){
-		var localesTasks = [{title:"Hola :), elimina esta tarea y agrega otras",state:"check",}]
-		localStorage.setItem("Tasks",JSON.stringify(localesTasks))
-		 var list = document.getElementById("list");
-		 localesTasks = JSON.parse(localStorage.getItem("Tasks"))
+//List Controller
+const listController = {
 
+	//Methods
 
-	}else{
-		var localesTasks = JSON.parse(localStorage.getItem("Tasks"))
-		if (localesTasks.length == 0) {
-			localesTasks = [{title:"Hola :), elimina esta tarea y agrega otras",state:"check"}]
+	addTask() {
+		const title = prompt("Insert a list title")
+
+		if (title) {
+			const index = localesTasks.length
+			const task = {
+				title,
+				state:"check"
+			}
+
+			localesTasks.push(task)
+			this.saveTasks()
 		}
-		var list = document.getElementById("list");
+	},
 
-	}
-	getTasks()
+	saveTasks() {
+		localStorage.setItem("Tasks",JSON.stringify(localesTasks))
+		this.showTasks()
+	},
 
-	function tarea (title,state = "check",index){
-		this.title = title;
-		this.state = state;
+	showTasks ()  {
+		list.innerHTML = "";
 
-
-	}
-
-
-
-function addTask(){
-	let titulo = prompt("titulo");
-	
-	
-	if (titulo) {
-		let indice = localesTasks.length
-		let task = new tarea(titulo,"check",indice);
-	localesTasks.push(task)
-	saveTask()
-}
-
-}
-
-function saveTask(){
-	
-	//let save = titles.concat(localesTasks)
-	localStorage.setItem("Tasks",JSON.stringify(localesTasks))
-	getTasks()
-}
-
-function getTasks(){
-	list.innerHTML = "";
-	for (let i = 0; i < localesTasks.length; i++) {
-		let element =[];
-		let content = [];
-		//let buttonDelete = localesTasks[i].buttonDelete;
-		//buttonDelete.setAttribute("type","button");
-
-		//buttonDelete.setAttribute("value","X")
-		//let check = document.createElement("input");
-		//check.setAttribute("class","check")
-		//check.setAttribute("id",localesTasks[i].title)
-		//check.setAttribute("type","checkbox")
-		//element[i] = document.createElement("li")
-		//element[i].innerHTML = localesTasks[i].title		//element[i].appendChild(check)
-		//element[i].appendChild(buttonDelete)
-		//element[i].appendChild(content[i]);
-		list.innerHTML += `<li  class="list-group-item">
-								<div class="row">
-									<div class="col-2">
-									<input type="checkbox" onclick="check(${i})" ${localesTasks[i].state} class="form-check-input me-1">
+		for(let i = 0; i < localesTasks.length; i++){
+			list.innerHTML += `	<li  class="list-group-item ${localesTasks[i].state == "checked" ? "list-group-item-primary" : ""}">
+									<div class="row">
+										<div class="col-2">
+											<input type="checkbox" onclick="listController.checkTask(${i})" ${localesTasks[i].state} class="form-check-input me-1">
+										</div>
+										<div class="col-8">
+											<p class="lead text-primary"><b>${localesTasks[i].title}</b></p> 
+										</div>
+										<div class="col-2">
+											<button onclick="listController.deleteTask(${i})" class="btn btn-close btn-close-danger btn-sm" ></button>
+										</div>
 									</div>
-									<div class="col-8">
-									${localesTasks[i].title} 
-									</div>
-									<div class="col-2">
-									<button onclick="deleteTask(${i})" class="btn btn-danger btn-sm" style="border-radius:50%">x</button>
-									</div>
-								</div>
-		</li>`;
+								</li>`;
+		}
+	},
 
-		//list.appendChild(element[i]);
-	}
-}
+	deleteTask(index) {
+		localesTasks.splice(index,1)
+		this.saveTasks()
+	},
 
-function deleteTask(a){
-	
-	localesTasks.splice(a,1);
-	saveTask()
+	checkTask(index) {
 
-}
+		if (localesTasks[index].state === "check") {
+			localesTasks[index].state = "checked";
+		} else {
+		localesTasks[index].state = "check"
+		}
 
-function check(a){
-	if (localesTasks[a].state === "check") {
-		localesTasks[a].state = "checked";
+		this.saveTasks()
 
 	}
-	else{
-		localesTasks[a].state = "check"
-	}
-	saveTask()
 }
 
 
 
+function firstTime () {
+
+	const task = {
+			title:"Hi! :), delete this task, then add more tasks",
+			state:"check"
+		}
+
+	if(!JSON.parse(localStorage.getItem("Tasks"))){
+		
+
+		localesTasks.push(task)
+
+		localStorage.setItem("Tasks",JSON.stringify(localesTasks))
+
+
+	} 
+
+		localesTasks = JSON.parse(localStorage.getItem("Tasks"));
+
+		if(localesTasks.length == 0) {
+			localesTasks.push(task)
+		}
+
+		
+	listController.showTasks()
+
+}
+
+	firstTime()
 
