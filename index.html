@@ -10,8 +10,8 @@
 <!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="bootstrap/dist/css/bootstrap">
-<link rel="stylesheet" href="css/sass.css">
+<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+
 
 	
 </head>
@@ -20,12 +20,12 @@
 	
 	<div class="fluid-container">
 	
-				<div class="px-4 py-2 bg-light"><h1 id="title text-primary ">SimpleList-Front</h1> <p class="text-primary text-right" style="font-size:10px">Created by Enrique Rodriguez</p></div>
+				<div class="px-4 py-2 bg-light"><h1 id="title" class="text-primary">SimpleList-Front</h1> <p class="text-primary text-right" style="font-size:10px">Created by Enrique Rodriguez</p></div>
 
 		<div class="container my-4">
 			<div id="main-wrapper" class="card bg-light">
 			<div class="py-4 text-center">
-				<h2 class="text-primary">To do List</h2>
+				<h2 class="text-primary">To Do List</h2>
 			</div>
 			<ul id="list" class="list-group list-group-flush">
 		
@@ -39,7 +39,7 @@
 		</div>
 		<div class="fixed-bottom">
 		<div class="d-grid gap-2">
-		<button id="add" class="btn btn-primary" onclick="addTask()">Agregar</button>
+		<button id="add" class="btn btn-primary" onclick="listController.addTask()">Add New Task</button>
 		</div>
 	</div>
 	</div>
